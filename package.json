@@ -1,0 +1,15 @@
+{
+  "name": "sentiment-analysis-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run dev --prefix frontend\" \"npm start --prefix backend\" \"Minor-Project\\venv\\Scripts\\python Minor-Project\\app.py\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

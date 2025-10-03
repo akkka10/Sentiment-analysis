@@ -1,0 +1,5 @@
+{
+  "name": "Sentiment Analysis AI",
+  "description": "An intelligent web application that analyzes the sentiment of any given text. Users can either type in the text directly or upload a text file to determine if the sentiment is positive, negative, or neutral.",
+  "requestFramePermissions": []
+}
