@@ -12,26 +12,26 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const fileText = e.target?.result as string;
-        setText(fileText);
-        setError(null);
-        setResult(null);
-      };
-      reader.onerror = () => {
-        setError('Failed to read the file.');
-      };
-      reader.readAsText(file);
-    }
-  };
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       const fileText = e.target?.result as string;
+  //       setText(fileText);
+  //       setError(null);
+  //       setResult(null);
+  //     };
+  //     reader.onerror = () => {
+  //       setError('Failed to read the file.');
+  //     };
+  //     reader.readAsText(file);
+  //   }
+  // };
 
-  const handleFileUploadClick = () => {
-    fileInputRef.current?.click();
-  };
+  // const handleFileUploadClick = () => {
+  //   fileInputRef.current?.click();
+  // };
 
   const handleAnalyzeClick = useCallback(async () => {
     if (!text.trim()) {
@@ -88,13 +88,13 @@ const App: React.FC = () => {
                 </svg>
                 Upload Text File
               </button> */}
-              <input
+              {/* <input
                 type="file"
                 ref={fileInputRef}
                 onChange={handleFileChange}
                 accept=".txt"
                 className="hidden"
-              />
+              /> */}
               <button
                 onClick={handleAnalyzeClick}
                 disabled={isLoading || !text.trim()}
@@ -118,7 +118,7 @@ const App: React.FC = () => {
         </main>
 
         <footer className="text-center mt-8 text-sm text-gray-500 dark:text-gray-400">
-          <p>Powered by Advanced AI Models</p>
+
         </footer>
       </div>
     </div>
