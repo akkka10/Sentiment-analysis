@@ -4,3 +4,28 @@ backend/.env/
 node_modules/
 .env.local
 .e
+Minor-Project/venv
+# Python virtual environment
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# Logs & temp
+*.log
+*.tmp
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
