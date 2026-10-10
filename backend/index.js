@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 const cors = require('cors');
 const Analysis = require('./models/Analysis');
-
+const Sentiment = require('sentiment');
+const sentimentAnalyzer = new Sentiment();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -28,11 +29,9 @@ app.post('/api/analyze', async (req, res) => {
         }
 
         // 1. Forward the text to the Flask API
-        const flaskResponse = await axios.post(process.env.FLASK_API_URL, { text });
-
-        // Destructure 'sentiment' and 'confidence' from the response
-        const { sentiment, confidence } = flaskResponse.data;
-
+        const result = sentimentAnalyzer.analyze(text);
+const sentiment = result.score > 0 ? 'positive' : result.score < 0 ? 'negative' : 'neutral';
+const confidence = Math.min(Math.abs(result.comparative), 1);
         // 2. Store the result in MongoDB using the correct variable
         const newAnalysis = new Analysis({
             text,
